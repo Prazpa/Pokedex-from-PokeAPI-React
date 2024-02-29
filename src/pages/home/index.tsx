@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { pokemonListServices, pokemonDetailServices } from "@/services";
+import SearchForm from "@/components/SearchForm";
 
 const HomePage = () => {
   
@@ -13,8 +14,11 @@ const HomePage = () => {
   }, [])
   
   return (
-    <div>
-      HomePage
+    <div className='w-[90%] m-[auto] max-w-[1100px]'>
+      <div className='flex justify-center'>
+        <img src="/images/logo.webp" className='max-h-[80px] mt-[20px]' alt=""/>
+      </div>
+      <SearchForm/>
     </div>
   )
 }
