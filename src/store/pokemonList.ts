@@ -18,7 +18,7 @@ const initStore = {
 type pokemonType = {
     data: IPokemonDetailResponse[],
     loading: boolean,
-    error: null | object,
+    error: null | any,
 }
 
 type UsePokemonListStoreType = {

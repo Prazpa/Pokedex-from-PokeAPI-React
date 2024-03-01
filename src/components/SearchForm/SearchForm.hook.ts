@@ -11,7 +11,7 @@ const useSearchForm = () => {
         watch, 
         formState: {errors} 
     } = useForm()
-    const {setFetchPokemonList} = usePokemonListStore()
+    const {setFetchPokemonList, fetchPokemon, setPokemonList} = usePokemonListStore()
 
     const keyword = watch("keyword")
 
@@ -21,7 +21,7 @@ const useSearchForm = () => {
         setFetchPokemonList({data: [], loading: true, error: null,})
 
         if (responseList.status === 200) {
-            const responseResults = responseList.data.results || []
+            const responseResults = responseList.data?.results || []
             for (const pokemon of responseResults) {
                 const response = await pokemonDetailServices.getPokemonDetail(pokemon.name)
                 const pokeData = response.data
@@ -30,7 +30,7 @@ const useSearchForm = () => {
             // console.log('pokeList', pokeList);
             setFetchPokemonList({data: pokeList, loading: false, error: null,})
         } else {
-            setFetchPokemonList({data: [], loading: false, error: responseList.data,})
+            setFetchPokemonList({data: [], loading: false, error: responseList.error,})
         }
 
     };
@@ -40,9 +40,16 @@ const useSearchForm = () => {
     }, []);
 
     useEffect(() => {
-        console.log("keyword", keyword);
-        
-    }, [keyword])
+        const data = fetchPokemon.data.map((item) => {
+            return item.name.toLowerCase().includes(keyword?.toLowerCase()) ? item : null;
+        }).filter(Boolean);
+
+        setPokemonList({
+            data: data, 
+            loading: false, 
+            error: null,
+    });
+    },[keyword])
 
     return {
         fieldKeyword : register("keyword"),
