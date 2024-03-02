@@ -25,7 +25,10 @@ const useSearchForm = () => {
             for (const pokemon of responseResults) {
                 const response = await pokemonDetailServices.getPokemonDetail(pokemon.name)
                 const pokeData = response.data
-                pokeList.push({...pokeData})
+                pokeList.push({...pokeData,
+                    image: 
+                        pokeData.sprites.other.dream_world.front_default || 
+                        pokeData.sprites.other["official-artwork"].front_default})
             }
             // console.log('pokeList', pokeList);
             setFetchPokemonList({data: pokeList, loading: false, error: null,})
@@ -40,15 +43,14 @@ const useSearchForm = () => {
     }, []);
 
     useEffect(() => {
-        const data = fetchPokemon.data.map((item) => {
-            return item.name.toLowerCase().includes(keyword?.toLowerCase()) ? item : null;
-        }).filter(Boolean);
+        const data = fetchPokemon.data
+        .filter((item) => item.name.toLowerCase().includes(keyword?.toLowerCase()));
 
         setPokemonList({
             data: data, 
             loading: false, 
             error: null,
-    });
+        });
     },[keyword])
 
     return {
