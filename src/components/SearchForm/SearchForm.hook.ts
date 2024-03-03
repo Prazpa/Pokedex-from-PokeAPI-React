@@ -32,8 +32,8 @@ const useSearchForm = () => {
                             pokeData.sprites.other["official-artwork"].front_default
                     })
             }
-            // console.log('pokeList', pokeList);
             setFetchPokemonList({data: pokeList, loading: false, error: null,})
+            setPokemonList({data: pokeList, loading: false, error: null,})
         } else {
             setFetchPokemonList({data: [], loading: false, error: responseList.error,})
         }
@@ -43,6 +43,14 @@ const useSearchForm = () => {
     useEffect(() => {
         callData();
     }, []);
+
+    useEffect(() => {
+        setPokemonList({
+            data: fetchPokemon.data,
+            loading: false,
+            error: null,
+        });
+    }, [fetchPokemon.data]);
 
     useEffect(() => {
         const data = fetchPokemon.data
