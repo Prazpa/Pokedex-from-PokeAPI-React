@@ -3,10 +3,10 @@ import { generationList, typesList, sortList } from "@/utils/optionList"
 import { useSearchForm } from "@/components/SearchForm";
 
 const SearchForm = () => {
-  const {fieldKeyword} = useSearchForm()
+  const {fieldKeyword,fieldGeneration, fieldSort, fieldType} = useSearchForm()
 
   return (
-    <form className='grid grid-cols-4 gap-x-[20px]'>
+    <form className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px] '>
       <div>
         <label
           htmlFor="generation"
@@ -15,7 +15,8 @@ const SearchForm = () => {
           Generation
         </label>
 
-        <select
+        <select 
+          {...fieldGeneration}
           id="generation"
           className="bg-[#253641] border capitalize border-gray-300 text-white text-sm rounded-lg focus:ring-[#375EAA] focus:border-[#375EAA] block w-full p-2.5"
         >
@@ -34,6 +35,7 @@ const SearchForm = () => {
         </label>
 
         <select
+          {...fieldType}
           id="type"
           className="bg-[#253641] border capitalize border-gray-300 text-white text-sm rounded-lg focus:ring-[#375EAA] focus:border-[#375EAA] block w-full p-2.5"
         >
@@ -52,6 +54,7 @@ const SearchForm = () => {
         </label>
 
         <select
+          {...fieldSort}
           id="sort"
           className="bg-[#253641] border capitalize border-gray-300 text-white text-sm rounded-lg focus:ring-[#375EAA] focus:border-[#375EAA] block w-full p-2.5"
         >
