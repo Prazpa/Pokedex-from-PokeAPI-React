@@ -1,7 +1,7 @@
-import PokemonCard from "@/components/PokemonCard";
+
 import { IPokemonDetailResponse } from "@/interface/pokemonDetail";
-import { pokemonDetailServices, pokemonListServices } from "@/services";
-import React, { useEffect, useState } from "react";
+import { pokemonDetailServices,  } from "@/services";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 type pokemonType = {
