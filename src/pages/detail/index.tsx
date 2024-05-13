@@ -66,7 +66,7 @@ const DetailPage = () => {
               <img
                 className="absolute h-[auto] max-h-[400px] aspect-square translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%]"
                 src="/images/pokemon_bg.png"
-                alt=""
+                alt="pokemon"
               />
               <img
                 className="absolute rounded-t-lg h-[50%] sm:h-[250px] p-[40px] translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%]"
