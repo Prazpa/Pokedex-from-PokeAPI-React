@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomePage from '@/pages/home';
 import DetailPage from '@/pages/detail';
