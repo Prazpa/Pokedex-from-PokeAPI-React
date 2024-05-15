@@ -7,4 +7,5 @@ export default defineConfig({
   resolve: {
     alias:[{find:"@",replacement:"/src"}],
   },
+  base: '/Pokedex-from-PokeAPI-React.gtihub.io/'
 })
