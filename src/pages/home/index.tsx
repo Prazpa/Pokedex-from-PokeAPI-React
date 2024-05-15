@@ -13,7 +13,7 @@ const HomePage = () => {
       <div className='flex justify-center'>
         <img src="/images/logo.webp" className='max-h-[80px] mt-[20px]' alt=""/>
       </div>
-      <SearchForm image={""} name={""} id={0} types={[]}/>
+      <SearchForm/>
       {fetchPokemon.loading && (
         <div className="h-[600px] flex justify-center items-center">
           <ReactLoading type="spin" color="#fff" />

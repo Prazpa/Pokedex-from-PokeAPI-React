@@ -1,4 +1,3 @@
-import React from 'react'
 import { Type } from "@/interface/pokemonDetail"
 import { Link } from 'react-router-dom'
 
