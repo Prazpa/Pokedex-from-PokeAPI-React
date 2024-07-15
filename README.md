@@ -1,5 +1,5 @@
 # Preview
-go to: [-pokedex-from-poke-api-react.vercel.app](https://pokedex-from-poke-api-react.vercel.app/)
+Link: [-pokedex-from-poke-api-react.vercel.app](https://pokedex-from-poke-api-react.vercel.app/)
 
 
 # React + TypeScript + Vite
